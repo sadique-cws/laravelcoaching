@@ -19,7 +19,7 @@
                 <li class="nav-item"><a href="{{route('apply')}}" class="nav-link">Apply for admission</a></li>
                 <li class="nav-item">
                     <form action="{{route('logout')}}" method="POST">
-                        <input type="submit" class="nav-link" value="Logout">
+                        <input type="submit" class="btn-danger btn" value="Logout">
                     @csrf
                     </form>
                 </li>

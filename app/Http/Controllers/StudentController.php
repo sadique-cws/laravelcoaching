@@ -7,14 +7,24 @@ use App\Models\Student;
 use Auth;
 class StudentController extends Controller
 {
-    //
-
-    public function index(){
-        return view('homepage.index');
+    public function __construct(){
+        $this->middleware('auth');
     }
+    
+
+    public function profile(){
+        $data['student'] = Student::where('user_id',Auth::id())->firstOrFail();
+        return view("homepage.profile",$data);
+    }    
+
+    
     public function apply(){
+
+        
+
         return view("homepage.apply");
     }
+    
     public function applyStore(Request $request){
 
         $request->validate([
@@ -39,4 +49,5 @@ class StudentController extends Controller
 
         return redirect()->back();
     }
+
 }

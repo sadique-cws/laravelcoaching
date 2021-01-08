@@ -14,9 +14,13 @@ use App\Http\Controllers\StudentController;
 |
 */
 
-Route::get('/', [StudentController::class,'index'])->name('index');
+Route::get('/', function(){
+    return view("homepage.index");
+})->name('index');
+
 Route::get('/apply', [StudentController::class,'apply'])->name('apply');
 Route::post('/apply', [StudentController::class,'applyStore'])->name('applyStore');
+Route::get('/profile', [StudentController::class,'profile'])->name('profile');
 
 
 Route::prefix("admin")->group(function(){
